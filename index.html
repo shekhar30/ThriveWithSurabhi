@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriLife - Your Path to Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage-green: #8DA399;
+            --cream: #F9F7F2;
+            --dark-charcoal: #333333;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bg-sage { background-color: var(--sage-green); }
+        .bg-cream { background-color: var(--cream); }
+        .bg-charcoal { background-color: var(--dark-charcoal); }
+        .text-sage { color: var(--sage-green); }
+        .text-cream { color: var(--cream); }
+        .text-charcoal { color: var(--dark-charcoal); }
+        .border-sage { border-color: var(--sage-green); }
+        .hover-sage:hover { background-color: #7a9189; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-sage">NutriLife</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-charcoal hover:text-sage transition">Home</a>
+                    <a href="#philosophy" class="text-charcoal hover:text-sage transition">Philosophy</a>
+                    <a href="#services" class="text-charcoal hover:text-sage transition">Services</a>
+                    <a href="#contact" class="text-charcoal hover:text-sage transition">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-charcoal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block text-charcoal hover:text-sage transition py-2">Home</a>
+                <a href="#philosophy" class="block text-charcoal hover:text-sage transition py-2">Philosophy</a>
+                <a href="#services" class="block text-charcoal hover:text-sage transition py-2">Services</a>
+                <a href="#contact" class="block text-charcoal hover:text-sage transition py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-20 bg-gradient-to-br from-cream to-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-5xl md:text-6xl font-bold text-charcoal mb-6 leading-tight">
+                        Transform Your Life Through <span class="text-sage">Nutrition</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Personalized nutrition plans tailored to your unique goals, lifestyle, and health needs.
+                    </p>
+                    <a href="#booking" class="inline-block bg-sage text-white px-8 py-4 rounded-lg text-lg font-semibold hover-sage transition shadow-lg">
+                        Book Your Consultation
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-sage rounded-3xl h-96 flex items-center justify-center text-white text-2xl shadow-2xl">
+                        Hero Image Placeholder
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold text-charcoal mb-6">My Philosophy</h2>
+                    <p class="text-lg text-gray-700 mb-4">
+                        I believe that nutrition is not about restriction, but about nourishment. Every body is unique, and so should be every nutrition plan.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        My approach focuses on sustainable lifestyle changes rather than quick fixes. Together, we'll create a personalized plan that fits your life, not the other way around.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        Through evidence-based practices and compassionate guidance, I'm here to support you on your journey to optimal health and wellness.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-cream rounded-3xl h-96 flex items-center justify-center text-sage text-2xl shadow-xl">
+                        Philosophy Image Placeholder
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Services Section -->
+   <section id="services" class="py-20 bg-cream">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-charcoal mb-4">Our Services</h2>
+        <p class="text-center text-gray-600 mb-12 text-lg">Comprehensive nutrition solutions tailored to your health goals</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Weight Management Service -->
+            <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sage text-5xl mb-4">⚖️</div>
+                <h3 class="text-2xl font-bold text-charcoal mb-4">Weight Management</h3>
+                <p class="text-gray-600 mb-6">Achieve and maintain your ideal weight through sustainable, science-based nutrition strategies.</p>
+                <div class="border-t-2 border-sage pt-4 mb-6">
+                    <h4 class="font-semibold text-charcoal mb-3">What's Included:</h4>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Comprehensive body composition analysis</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Customized calorie and macro planning</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Weekly meal plans and shopping lists</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Behavioral coaching for lasting habits</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Progress tracking and adjustments</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Monthly follow-up consultations</span>
+                    </li>
+                </ul>
+                <a href="#booking" class="block text-center bg-sage text-white px-6 py-3 rounded-lg font-semibold hover-sage transition">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Medical Nutrition Therapy Service -->
+            <div class="service-card bg-white rounded-2xl p-8 shadow-lg border-4 border-sage relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sage text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    Most Popular
+                </div>
+                <div class="text-sage text-5xl mb-4">🏥</div>
+                <h3 class="text-2xl font-bold text-charcoal mb-4">Medical Nutrition Therapy</h3>
+                <p class="text-gray-600 mb-6">Specialized nutrition care for managing chronic conditions and improving overall health outcomes.</p>
+                <div class="border-t-2 border-sage pt-4 mb-6">
+                    <h4 class="font-semibold text-charcoal mb-3">What's Included:</h4>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Diabetes, heart disease, and GI disorder management</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Lab work analysis and interpretation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Therapeutic diet plans tailored to conditions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Medication-nutrient interaction guidance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Coordination with healthcare providers</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Bi-weekly monitoring and support</span>
+                    </li>
+                </ul>
+                <a href="#booking" class="block text-center bg-sage text-white px-6 py-3 rounded-lg font-semibold hover-sage transition">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Sports Nutrition Service -->
+            <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sage text-5xl mb-4">💪</div>
+                <h3 class="text-2xl font-bold text-charcoal mb-4">Sports Nutrition</h3>
+                <p class="text-gray-600 mb-6">Optimize athletic performance and recovery through targeted nutrition strategies for athletes and active individuals.</p>
+                <div class="border-t-2 border-sage pt-4 mb-6">
+                    <h4 class="font-semibold text-charcoal mb-3">What's Included:</h4>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Performance nutrition assessment</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Sport-specific fueling strategies</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Pre/post-workout nutrition timing</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Supplement evaluation and recommendations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Hydration and electrolyte planning</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-sage mr-2">✓</span>
+                        <span class="text-gray-700">Race day and competition strategies</span>
+                    </li>
+                </ul>
+                <a href="#booking" class="block text-center bg-sage text-white px-6 py-3 rounded-lg font-semibold hover-sage transition">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <h2 class="text-4xl font-bold text-center text-charcoal mb-4">Book Your Consultation</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Take the first step towards a healthier you</p>
+            
+            <div id="booking-form-container">
+                <div class="bg-cream rounded-2xl p-8 shadow-lg">
+                    <div id="form-message" class="hidden mb-6 p-4 rounded-lg"></div>
+                    
+                    <div id="booking-form">
+                        <div class="mb-6">
+                            <label class="block text-charcoal font-semibold mb-2">Full Name *</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-sage" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-charcoal font-semibold mb-2">Email Address *</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-sage" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-charcoal font-semibold mb-2">Phone Number *</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-sage" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-charcoal font-semibold mb-2">Preferred Date *</label>
+                            <input type="date" id="date" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-sage" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-charcoal font-semibold mb-2">Select Consultation Type *</label>
+                            <select id="package" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-sage" required>
+                                <option value="">Choose a consultation type...</option>
+                                <option value="weight-management">Weight Management</option>
+                                <option value="medical-nutrition-therapy">Medical Nutrition Therapy</option>
+                                <option value="sports-nutrition">Sports Nutrition</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-charcoal font-semibold mb-2">Message (Optional)</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-sage" placeholder="Tell us about your goals..."></textarea>
+                        </div>
+                        
+                        <button id="submit-btn" class="w-full bg-sage text-white px-6 py-4 rounded-lg text-lg font-semibold hover-sage transition">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-cream">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-charcoal mb-4">Get In Touch</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Have questions? We'd love to hear from you</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        📧
+                    </div>
+                    <h3 class="font-semibold text-charcoal mb-2">Email</h3>
+                    <p class="text-gray-600">info@nutrilife.com</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        📞
+                    </div>
+                    <h3 class="font-semibold text-charcoal mb-2">Phone</h3>
+                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        📍
+                    </div>
+                    <h3 class="font-semibold text-charcoal mb-2">Location</h3>
+                    <p class="text-gray-600">123 Wellness St, Health City</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <p>&copy; 2026 NutriLife. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-sage transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-sage transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-sage transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Booking form submission with email functionality
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+        
+        submitBtn.addEventListener('click', async () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const packageType = document.getElementById('package').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate required fields
+            if (!name || !email || !phone || !date || !packageType) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            
+            try {
+                // Simulate backend API call for booking
+                await simulateBookingSubmission({
+                    name,
+                    email,
+                    phone,
+                    date,
+                    package: packageType,
+                    message
+                });
+                
+                // Clear form
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('date').value = '';
+                document.getElementById('package').value = '';
+                document.getElementById('message').value = '';
+                
+                showMessage('Booking confirmed! A confirmation email has been sent to ' + email, 'success');
+            } catch (error) {
+                showMessage('There was an error processing your booking. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Book Now';
+            }
+        });
+        
+        function showMessage(msg, type) {
+            formMessage.textContent = msg;
+            formMessage.className = 'mb-6 p-4 rounded-lg ' + 
+                (type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800');
+            formMessage.classList.remove('hidden');
+            
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Connect to backend API for booking submission
+        async function simulateBookingSubmission(bookingData) {
+            // PRODUCTION: Replace with your actual backend URL
+            const API_URL = 'http://localhost:3000/api/bookings';
+            
+            // For development/demo, we'll simulate the API call
+            // Uncomment below when backend is running:
+            
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bookingData)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Booking submission failed');
+            }
+            
+            return await response.json();
+            
+            
+            // DEMO MODE - Simulates successful booking
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log('Booking submitted:', bookingData);
+                    console.log('✅ Confirmation email would be sent to:', bookingData.email);
+                    console.log('📧 Admin notification would be sent');
+                    
+                    resolve({
+                        success: true,
+                        bookingId: 'BOOK' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                        message: 'Booking created successfully'
+                    });
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>
