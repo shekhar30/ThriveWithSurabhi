@@ -40,6 +40,54 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.5rem;
+        }
+
+        .philosophy-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.5rem;
+        }
+
+        .hero-image-wrapper {
+            overflow: hidden;
+            border-radius: 1.5rem;
+            height: 24rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1.5rem;
+            border: 3px solid var(--sage-green);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .philosophy-image-wrapper {
+            overflow: hidden;
+            border-radius: 1.5rem;
+            height: 24rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+            margin: -2rem -2rem 1.5rem -2rem;
+            width: calc(100% + 4rem);
+        }
     </style>
 </head>
 <body class="bg-cream text-charcoal">
@@ -86,8 +134,8 @@
                     </a>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="bg-sage rounded-3xl h-96 flex items-center justify-center text-white text-2xl shadow-2xl">
-                        Hero Image Placeholder
+                    <div class="hero-image-wrapper">
+                        <img src="images/surabhi.png" alt="Surabhi - Nutrition Consultant" class="hero-image">
                     </div>
                 </div>
             </div>
@@ -111,8 +159,8 @@
                     </p>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="bg-cream rounded-3xl h-96 flex items-center justify-center text-sage text-2xl shadow-xl">
-                        Philosophy Image Placeholder
+                    <div class="philosophy-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Healthy nutrition and fresh ingredients" class="philosophy-image">
                     </div>
                 </div>
             </div>
@@ -127,8 +175,10 @@
         
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Weight Management Service -->
-            <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
-                <div class="text-sage text-5xl mb-4">⚖️</div>
+            <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Weight Management - Healthy balanced meal" class="w-full h-48 object-cover">
+                <div class="p-8">
+                <div class="text-sage text-4xl mb-3">⚖️</div>
                 <h3 class="text-2xl font-bold text-charcoal mb-4">Weight Management</h3>
                 <p class="text-gray-600 mb-6">Achieve and maintain your ideal weight through sustainable, science-based nutrition strategies.</p>
                 <div class="border-t-2 border-sage pt-4 mb-6">
@@ -163,14 +213,17 @@
                 <a href="#booking" class="block text-center bg-sage text-white px-6 py-3 rounded-lg font-semibold hover-sage transition">
                     Learn More
                 </a>
+                </div>
             </div>
 
             <!-- Medical Nutrition Therapy Service -->
-            <div class="service-card bg-white rounded-2xl p-8 shadow-lg border-4 border-sage relative">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sage text-white px-4 py-1 rounded-full text-sm font-semibold">
+            <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-sage relative">
+                <div class="absolute top-4 left-1/2 transform -translate-x-1/2 bg-sage text-white px-4 py-1 rounded-full text-sm font-semibold z-10">
                     Most Popular
                 </div>
-                <div class="text-sage text-5xl mb-4">🏥</div>
+                <img src="https://images.unsplash.com/photo-1505576399279-0d754c0d8be8?w=600&q=80" alt="Clinical Nutrition - Medical consultation" class="w-full h-48 object-cover">
+                <div class="p-8">
+                <div class="text-sage text-4xl mb-3">🏥</div>
                 <h3 class="text-2xl font-bold text-charcoal mb-4">Lifestyle / Clinical Issues Management</h3>
                 <p class="text-gray-600 mb-6">Specialized nutrition care for managing chronic conditions and improving overall health outcomes.</p>
                 <div class="border-t-2 border-sage pt-4 mb-6">
@@ -205,11 +258,14 @@
                 <a href="#booking" class="block text-center bg-sage text-white px-6 py-3 rounded-lg font-semibold hover-sage transition">
                     Learn More
                 </a>
+                </div>
             </div>
 
             <!-- Sports Nutrition Service -->
-            <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
-                <div class="text-sage text-5xl mb-4">💪</div>
+            <div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Sports Nutrition - Athletic performance" class="w-full h-48 object-cover">
+                <div class="p-8">
+                <div class="text-sage text-4xl mb-3">💪</div>
                 <h3 class="text-2xl font-bold text-charcoal mb-4">Sports Nutrition</h3>
                 <p class="text-gray-600 mb-6">Optimize athletic performance and recovery through targeted nutrition strategies for athletes and active individuals.</p>
                 <div class="border-t-2 border-sage pt-4 mb-6">
@@ -244,6 +300,7 @@
                 <a href="#booking" class="block text-center bg-sage text-white px-6 py-3 rounded-lg font-semibold hover-sage transition">
                     Learn More
                 </a>
+                </div>
             </div>
         </div>
     </div>
