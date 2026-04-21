@@ -86,16 +86,10 @@ const getCustomerEmailTemplate = (bookingData) => {
                     <span class="detail-label">Name:</span> ${bookingData.name}
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Email:</span> ${bookingData.email}
-                </div>
-                <div class="detail-row">
                     <span class="detail-label">Phone:</span> ${bookingData.phone}
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Preferred Date:</span> ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-                </div>
-                <div class="detail-row">
-                    <span class="detail-label">Selected Package:</span> ${packageNames[bookingData.package]}
+                    <span class="detail-label">Selected Package:</span> ${packageNames[bookingData.package] || 'Not specified'}
                 </div>
                 ${bookingData.message ? `<div class="detail-row"><span class="detail-label">Your Message:</span> ${bookingData.message}</div>` : ''}
             </div>
@@ -169,16 +163,10 @@ const getAdminEmailTemplate = (bookingData) => {
                     <span class="detail-label">Client Name:</span> ${bookingData.name}
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Email:</span> <a href="mailto:${bookingData.email}">${bookingData.email}</a>
-                </div>
-                <div class="detail-row">
                     <span class="detail-label">Phone:</span> <a href="tel:${bookingData.phone}">${bookingData.phone}</a>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Preferred Date:</span> ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-                </div>
-                <div class="detail-row">
-                    <span class="detail-label">Package:</span> ${packageNames[bookingData.package]}
+                    <span class="detail-label">Package:</span> ${packageNames[bookingData.package] || 'Not specified'}
                 </div>
                 ${bookingData.message ? `<div class="detail-row"><span class="detail-label">Message:</span><br/><div style="margin-top: 10px; padding: 15px; background-color: white; border-radius: 5px;">${bookingData.message}</div></div>` : ''}
             </div>
@@ -193,7 +181,6 @@ const getAdminEmailTemplate = (bookingData) => {
 
             <p style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #8DA399;">
                 <strong>Quick Actions:</strong><br/>
-                Email: <a href="mailto:${bookingData.email}">${bookingData.email}</a><br/>
                 Call: <a href="tel:${bookingData.phone}">${bookingData.phone}</a>
             </p>
         </div>
@@ -213,22 +200,13 @@ app.get('/api/health', (req, res) => {
 // Create new booking
 app.post('/api/bookings', async (req, res) => {
     try {
-        const { name, email, phone, date, package, message } = req.body;
+        const { name, phone, package: pkg, message } = req.body;
 
         // Validate required fields
-        if (!name || !email || !phone || !date || !package) {
+        if (!name || !phone) {
             return res.status(400).json({
                 success: false,
                 error: 'Missing required fields'
-            });
-        }
-
-        // Validate email format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return res.status(400).json({
-                success: false,
-                error: 'Invalid email format'
             });
         }
 
@@ -239,10 +217,8 @@ app.post('/api/bookings', async (req, res) => {
         const booking = {
             bookingId,
             name,
-            email,
             phone,
-            date,
-            package,
+            package: pkg || '',
             message: message || '',
             timestamp: new Date(),
             status: 'pending'
@@ -250,14 +226,6 @@ app.post('/api/bookings', async (req, res) => {
 
         // Save booking (in production, save to database)
         bookings.push(booking);
-
-        // Send confirmation email to customer
-        const customerMailOptions = {
-            from: `"NutriLife" <${process.env.EMAIL_USER}>`,
-            to: email,
-            subject: '✅ Booking Confirmation - NutriLife Consultation',
-            html: getCustomerEmailTemplate(booking)
-        };
 
         // Send notification email to admin
         const adminMailOptions = {
@@ -267,14 +235,10 @@ app.post('/api/bookings', async (req, res) => {
             html: getAdminEmailTemplate(booking)
         };
 
-        // Send both emails
-        await Promise.all([
-            transporter.sendMail(customerMailOptions),
-            transporter.sendMail(adminMailOptions)
-        ]);
+        // Send admin notification email
+        await transporter.sendMail(adminMailOptions);
 
         console.log(`✅ Booking created: ${bookingId}`);
-        console.log(`📧 Confirmation email sent to: ${email}`);
         console.log(`📧 Admin notification sent`);
 
         res.status(201).json({
@@ -415,10 +379,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 const bookingSchema = new mongoose.Schema({
     bookingId: { type: String, required: true, unique: true },
     name: { type: String, required: true },
-    email: { type: String, required: true },
     phone: { type: String, required: true },
-    date: { type: Date, required: true },
-    package: { type: String, required: true },
+    package: { type: String },
     message: { type: String },
     status: { type: String, default: 'pending' },
     timestamp: { type: Date, default: Date.now }
